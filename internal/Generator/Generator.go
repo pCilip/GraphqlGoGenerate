@@ -217,7 +217,9 @@ func (generator *Generator) RenderObject(object Schema2.FullType, dir string) bo
 
 		field.Params(fieldParams...)
 
-		endType := BuildFieldType(generator, value, field)
+		returnTypes := jen.Id("")
+
+		endType := BuildFieldType(generator, value, returnTypes)
 
 		switch endType {
 		case RETURN:
@@ -227,6 +229,7 @@ func (generator *Generator) RenderObject(object Schema2.FullType, dir string) bo
 		default:
 		}
 
+		field.Parens(jen.List(returnTypes, jen.Qual("", "error")))
 		fields = append(fields, field)
 	}
 	file.Type().Id(fmt.Sprintf("%s", *object.Name)).Interface(fields...)
