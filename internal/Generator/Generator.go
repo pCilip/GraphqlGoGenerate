@@ -129,7 +129,7 @@ func (generator *Generator) RenderScalar(scalar Schema2.FullType) {
 
 	// UnmarshalGraphQL
 	file.Func().
-		Parens(jen.Id("id").Id(*scalar.Name)).
+		Parens(jen.Id("id").Id("*").Id(*scalar.Name)).
 		Id("UnmarshalGraphQL").                    // function name
 		Params(jen.Id("input").Id("interface{}")). // parameters
 		Qual("", "error").                         // return type
@@ -137,9 +137,9 @@ func (generator *Generator) RenderScalar(scalar Schema2.FullType) {
 			jen.Switch(jen.Id("input.(type)")).
 				Block(
 					jen.Case(jen.Id("string")),
-					jen.Id("id").Op("=").Id(*scalar.Name).Parens(jen.Id("input.(string)")).Line().Return(jen.Nil()),
+					jen.Id("*id").Op("=").Id(*scalar.Name).Parens(jen.Id("input.(string)")).Line().Return(jen.Nil()),
 				),
-			jen.Return(jen.Qual("", "errors").Id(".New").Parens(jen.Lit(fmt.Sprintf("cannot unmarshal: %s", *scalar.Name)))))
+			jen.Return(jen.Qual("errors", "").Id("New").Parens(jen.Lit(fmt.Sprintf("cannot unmarshal: %s", *scalar.Name)))))
 
 	filePath := fmt.Sprintf("%s/%s/%s.go", generator.ScalarsDirectory, *scalar.Name, *scalar.Name)
 	generator.addImportPath(*scalar.Name, filePath)
