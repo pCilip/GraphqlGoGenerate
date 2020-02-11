@@ -67,7 +67,13 @@ func GenerateName(generator *Generator, generatedField *jen.Statement, name *str
 			return RETURN
 		}
 	} else {
-		generatedField.Id(typeVal)
+		// TODO #1 fix
+		if typeVal == "graphql.ID" {
+			generatedField.Qual("github.com/graph-gophers/graphql-go", "ID")
+		} else {
+			generatedField.Id(typeVal)
+		}
+
 	}
 	return OK
 }

@@ -3,6 +3,7 @@ package Generator
 import (
 	"fmt"
 	"github.com/dave/jennifer/jen"
+	_ "github.com/graph-gophers/graphql-go"
 	"github.com/iancoleman/strcase"
 	Schema2 "github.com/pCilip/GraphqlGoGenerate/internal/Schema"
 	"github.com/pCilip/GraphqlGoGenerate/internal/Utils"
@@ -62,6 +63,8 @@ func (generator *Generator) prepare() {
 	if err != nil {
 		panic(err)
 	}
+
+	generator.addImportPath("graphql.ID", "graphql.Id")
 }
 
 func (generator *Generator) addImportPath(key, path string) {
