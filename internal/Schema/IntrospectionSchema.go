@@ -9,5 +9,5 @@ type Schema struct {
 	MutationType     Type
 	SubscriptionType Type
 	Types            []FullType
-	// TODO directives??? for generation not necessary
+	// directives??? for generation not necessary
 }
