@@ -1,12 +1,12 @@
 package main
 
 import (
-	"GraphqlGoGenerate/internal/Generator"
-	"GraphqlGoGenerate/internal/SchemaProvider"
-	"GraphqlGoGenerate/internal/SchemaProvider/HttpProvider"
-	"GraphqlGoGenerate/internal/SchemaProvider/JsonProvider"
 	"flag"
 	"fmt"
+	"github.com/pCilip/GraphqlGoGenerate/internal/Generator"
+	"github.com/pCilip/GraphqlGoGenerate/internal/SchemaProvider"
+	"github.com/pCilip/GraphqlGoGenerate/internal/SchemaProvider/HttpProvider"
+	"github.com/pCilip/GraphqlGoGenerate/internal/SchemaProvider/JsonProvider"
 	"os"
 )
 

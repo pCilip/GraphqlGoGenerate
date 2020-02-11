@@ -1,4 +1,4 @@
-module GraphqlGoGenerate
+module github.com/pCilip/GraphqlGoGenerate
 
 go 1.13
 

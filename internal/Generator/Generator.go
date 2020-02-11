@@ -1,11 +1,11 @@
 package Generator
 
 import (
-	Schema2 "GraphqlGoGenerate/internal/Schema"
-	"GraphqlGoGenerate/internal/Utils"
 	"fmt"
 	"github.com/dave/jennifer/jen"
 	"github.com/iancoleman/strcase"
+	Schema2 "github.com/pCilip/GraphqlGoGenerate/internal/Schema"
+	"github.com/pCilip/GraphqlGoGenerate/internal/Utils"
 	"os"
 	path2 "path"
 	"strings"

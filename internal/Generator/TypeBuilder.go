@@ -1,9 +1,9 @@
 package Generator
 
 import (
-	"GraphqlGoGenerate/internal/Schema"
-	"GraphqlGoGenerate/internal/Utils"
 	"github.com/dave/jennifer/jen"
+	"github.com/pCilip/GraphqlGoGenerate/internal/Schema"
+	"github.com/pCilip/GraphqlGoGenerate/internal/Utils"
 )
 
 type EndType int

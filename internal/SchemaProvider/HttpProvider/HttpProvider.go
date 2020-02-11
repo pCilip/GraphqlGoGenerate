@@ -1,9 +1,9 @@
 package HttpProvider
 
 import (
-	"GraphqlGoGenerate/internal/Schema"
 	"bytes"
 	"encoding/json"
+	"github.com/pCilip/GraphqlGoGenerate/internal/Schema"
 	"io/ioutil"
 	"net/http"
 )

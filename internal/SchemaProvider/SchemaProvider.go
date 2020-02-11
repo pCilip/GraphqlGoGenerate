@@ -1,6 +1,6 @@
 package SchemaProvider
 
-import "GraphqlGoGenerate/internal/Schema"
+import "github.com/pCilip/GraphqlGoGenerate/internal/Schema"
 
 type SchemaProvider interface {
 	MustProvide() Schema.IntrospectionData

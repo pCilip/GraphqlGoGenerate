@@ -1,8 +1,8 @@
 package JsonProvider
 
 import (
-	"GraphqlGoGenerate/internal/Schema"
 	"encoding/json"
+	"github.com/pCilip/GraphqlGoGenerate/internal/Schema"
 	"io/ioutil"
 )
 
