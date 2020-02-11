@@ -37,7 +37,10 @@ func BuildTypeFromReference(generator *Generator, typeRef Schema.TypeReference, 
 		generatedField.Id("[]")
 		return BuildTypeFromReference(generator, typeRef.SubType(), generatedField, true)
 	// nullable type
-	case Schema.SCALAR, Schema.ENUM, Schema.INPUT_OBJECT, Schema.OBJECT:
+	case Schema.OBJECT:
+		return GenerateName(generator, generatedField, typeRef.GetName())
+
+	case Schema.SCALAR, Schema.ENUM, Schema.INPUT_OBJECT:
 		if addNull {
 			generatedField.Id("*")
 		}
