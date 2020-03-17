@@ -178,7 +178,7 @@ func (generator *Generator) RenderScalar(scalar Schema2.FullType) {
 				).
 				Else().
 				Block(
-					jen.Return(jen.Qual("encoding/json", "Marshall").Parens(jen.Id("id.Data"))),
+					jen.Return(jen.Qual("encoding/json", "Marshal").Parens(jen.Id("id.Data"))),
 				),
 		)
 
