@@ -135,7 +135,7 @@ func (generator *Generator) RenderScalar(scalar Schema2.FullType) {
 
 	// UnmarshalGraphQL
 	file.Func().
-		Parens(jen.Id("id").Id("*").Id(*scalar.Name)).
+		Parens(jen.Id("id").Id(*scalar.Name)).
 		Id("UnmarshalGraphQL").                    // function name
 		Params(jen.Id("input").Id("interface{}")). // parameters
 		Qual("", "error").                         // return type
@@ -167,7 +167,7 @@ func (generator *Generator) RenderScalar(scalar Schema2.FullType) {
 		Line()
 
 	file.Func().
-		Parens(jen.Id("id").Id("*").Id(*scalar.Name)).
+		Parens(jen.Id("id").Id(*scalar.Name)).
 		Id("MarshalJSON"). // function name
 		Params().
 		Params(jen.Id("[]byte"), jen.Qual("", "error")).
