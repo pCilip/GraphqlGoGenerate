@@ -147,6 +147,11 @@ func (generator *Generator) RenderScalar(scalar Schema2.FullType) {
 						Block(jen.Id("Data:"), jen.Id("input.(string),")).
 						Line().
 						Return(jen.Nil()),
+					jen.Case(jen.Id("int32")),
+					jen.Id("*id").Op("=").Id(*scalar.Name).
+						Block(jen.Id("Data:"), jen.Qual("strconv", "FormatInt").Parens(jen.Id("int64(input.(int32)), 10")).Id(",")).
+						Line().
+						Return(jen.Nil()),
 					jen.Case(jen.Id("int")),
 					jen.Id("*id").Op("=").Id(*scalar.Name).
 						Block(jen.Id("Data:"), jen.Qual("strconv", "FormatInt").Parens(jen.Id("int64(input.(int)), 10")).Id(",")).
